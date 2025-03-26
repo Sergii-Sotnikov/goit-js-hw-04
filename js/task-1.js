@@ -1,15 +1,18 @@
 console.log("<<<<<<<<<<<<<<<<TASK 1>>>>>>>>>>>>>>>");
-function slugify(title) {
-  title = title.toLowerCase();
-  const array = title.split(" ");
-  const slug = array.join("-");
-  return slug;
+function isEnoughCapacity(products, containerSize) {
+  let array;
+  array = Object.values(products);
+  let total = 0;
+  for (const quantityOfGoods of array) {
+    total += quantityOfGoods;
+  }
+  return total <= containerSize;
 }
 
-console.log(slugify("Arrays for beginners")); // "arrays-for-beginners"
-console.log(slugify("English for developer")); // "english-for-developer"
-console.log(slugify("Ten secrets of JavaScript")); // "ten-secrets-of-javascript"
-console.log(slugify("How to become a JUNIOR developer in TWO WEEKS")); // "how-to-become-a-junior-developer-in-two-weeks"
+console.log(isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8));
+console.log(isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12));
+console.log(isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14));
+console.log(isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7));
 
 console.log("");
 console.log("");
